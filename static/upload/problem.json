@@ -1,0 +1,42 @@
+{
+    "name": "John Doe",
+    "age": 22,
+    "Address": [
+      31,
+      "Baker street, Atlanta",
+      [
+        53,
+        "Northen ligths, US"
+      ]
+    ],
+    "components": [
+      "camera_server_ipu",
+      3.14,
+      123,
+      999,
+      "This is test",
+      "Palindrome",
+      "aoaoaoa",
+      [
+        "camera_server_ipu",
+        3.14,
+        123,
+        999,
+        "This is test",
+        "Palindrome",
+        "qs-hub-platform",
+        "fusion_server",
+        "camera_server_ipu"
+      ]
+    ],
+    "status": {
+      "en": "IPU",
+      "kn": " IPU",
+      "zh": "ipu"
+    },
+    "version": "a60b3f3a1478",
+    "qt_conf_version": "1.0.0",
+    "agv_ip": "10.1.1.23",
+    "agv_port": 8088,
+    "logpath": "/data/fw/log/program/"
+  }

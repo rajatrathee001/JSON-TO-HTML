@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Json data reader</title>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script src="/static/js//bootstrap.bundle.js"></script>
+    <script src="/static/js/jquery-3.5.1.js"></script>
+
+</head>
+
+<body>
+    <div class="container" id="myrow">
+        <ul class="nav nav-tabs">
+            <h3>
+                <a class="nav-link active" style="color:rgb(255, 255, 255); background-color:#2471A3;" href="/">Upload
+                    File</a>
+                    <br>
+                    <br>
+
+            </h3>
+        </ul>
+
+        <!-- tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id=" upload-file" role="tabpanel" aria-labelli="uploading">
+                <div class="row">
+                    <div class="col">
+                        <form action="#" method="POST" enctype="multipart/form-data">
+                            <!-- file input -->
+                            <p>
+                                <input type="file" name="file_name" class="btn"
+                                    style="background-color:#2471A3; color:azure" required />
+                            </p>
+                            <!-- submit button -->
+                            <p>
+                                <input type="submit" value="submit" class="btn"
+                                    style="background-color:#2471A3; color:azure">
+                            </p>
+
+                            <p style="text-align:center;">
+                                <strong>Instructions:</strong> <br>
+                                Only upload the file with extentions ".json"
+                                For other file extensions you will <strong>redirect </strong> to Error 404 Page>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    {% if fileupload %}
+
+    <div class="container" id="myrow_result">
+        <div class="row">
+            <div class="col col-8">
+                <table>
+                    <tr>
+                        <th>Keys</th>
+                        <th>Values</th>
+                    </tr>
+                    {% for name,score in data.items() %}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ score }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+
+    {% if extension %}
+    <div class="container" id="myrow_result">
+        <div class="row">
+            <p style="color:red; text-align:center;"><strong>Error !!!</strong></p>
+            <p style="text-align:center;">
+                Invalid Extension of the File !!!
+                <br>
+                Make sure the file extension is of ".json"
+            </p>
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% if got_error %}
+    <div class="container" id="myrow_result">
+        <div class="row">
+            <p style="color:red; text-align:center;"><strong>Error !!!</strong></p>
+            <p>
+                You got following error:
+            </p>
+            {{error}}
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% if not_validate %}
+    <div class="container" id="myrow_result">
+        <div class="row">
+            <p style="color:red; text-align:center;"><strong>Error !!!</strong></p>
+            <p>
+                The Json file is not validated !!!
+            </p>
+            {{error}}
+        </div>
+    </div>
+
+    {% endif %}
+
+    <style>
+        #myrow {
+            background-color: #EBEDEF;
+            padding: 20px;
+            margin: 40px;
+        }
+
+        #myrow_result {
+            background-color: #EBEDEF;
+            padding: 5%;
+            align-content: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+    </style>
+</body>
+
+</html>
